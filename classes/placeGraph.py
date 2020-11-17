@@ -1,13 +1,13 @@
-from tkinter import *
-from matplotlib.figure import Figure
-from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,
+from tkinter import * # NOQA
+from matplotlib.figure import Figure # NOQA
+from matplotlib.backends.backend_tkagg import (FigureCanvasTkAgg,# NOQA
                                                NavigationToolbar2Tk)
 
 
 class PlaceGraph():
-    def __init__(self, root: Tk, c: Canvas, fig: Figure, x: int, y1: str, maxVal : int) -> None:
+    def __init__(self, root, c, fig, x: int, y1: str, maxVal: int) -> None:
         y = [i for i in range(maxVal + 1)] 
-        xvals = [i for i in range(24)]
+  
         plot1 = fig.add_subplot(111)
         fig.set_facecolor("#2E3347")
 

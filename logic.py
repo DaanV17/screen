@@ -6,14 +6,13 @@ from classes.placeGraph import *
 from matplotlib import pyplot as plt
 from PIL import Image, ImageTk
 import pandas as pd
-# from matplotlib.animation import FuncAnimation
+from classes.canReader import CanReader
 import matplotlib.animation as animation
 
 plt.rcParams['toolbar'] = 'None'
 root = Tk()
 fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2)
 fig.patch.set_facecolor('#2E3347')
-
 
 
 def graph(i):
@@ -55,7 +54,7 @@ def test():
     # ani = FuncAnimation(plt.gcf(), graph, interval=1000)
 # ===== niet veranderen
 
-
+bus = CanReader('can0')
 root.geometry("1920x1080")
 root.bind('<Escape>', quit)
 SCREENWIDTH = root.winfo_screenwidth()
@@ -73,5 +72,5 @@ canvas.pack(fill="both", expand=True)
 fig = Figure(figsize=(5, 5))
 
 xpng = ImageTk.PhotoImage(Image.open('rsc/data.png'))
-graphButton = Button(canvas,text='test...', anchor='center', command=test, borderwidth=0, bd=0, highlightthickness=0)
+graphButton = Button(canvas,image=xpng, anchor='center', command=test, borderwidth=0, bd=0, highlightthickness=0)
 graphButton.place(x=SCREENWIDTH - 191.5, y=0)

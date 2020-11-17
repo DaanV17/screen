@@ -1,7 +1,9 @@
-from tkinter import *
-from PIL  import Image, ImageTk
+from tkinter import * # NOQA
+from PIL  import Image, ImageTk # NOQA
+
+
 class PlaceImage():
-    def __init__(self, root, img, fotox, fotoy,canvas, **kwargs):
+    def __init__(self, root, img, fotox, fotoy, canvas, **kwargs):
         """ Deze class zorgt ervoor dat je gemakkelijk een foto op het scherm kan plaatsen
         Arguments : 
             root ([object]) : de root widget, dit zal altijd root zijn
@@ -18,7 +20,7 @@ class PlaceImage():
         # Hier word gekeken of er aan gegeven is of je de foto wilt resizen
         # Als dit het geval is MOET je beide foto_x_resize en foto_y_resize invullen anders zal het programma het negeren
         if 'foto_x_resize' in kwargs and 'foto_y_resize' in kwargs:
-            self.png = ImageTk.PhotoImage(Image.open('rsc/' + img).resize((kwargs['foto_x_resize'],kwargs['foto_y_resize']),Image.ANTIALIAS))
+            self.png = ImageTk.PhotoImage(Image.open('rsc/' + img).resize((kwargs['foto_x_resize'], kwargs['foto_y_resize']), Image.ANTIALIAS))
         else:
             self.png = ImageTk.PhotoImage(Image.open('rsc/' + img))
         # hier word de foto geplaatst
