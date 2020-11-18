@@ -11,8 +11,7 @@ import matplotlib.animation as animation
 
 plt.rcParams['toolbar'] = 'None'
 root = Tk()
-fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2)
-fig.patch.set_facecolor('#2E3347')
+plt.rcParams['axes.grid'] = True
 
 
 def graph(i):
@@ -29,24 +28,26 @@ def graph(i):
     ax3.clear()
     ax4.clear()
 
-    ax1.plot(x, ynew)
+    ax1.plot(x, ynew, linewidth=2)
     ax1.set_title('windmolen')
 
-    ax2.plot(x, ynew)
+    ax2.plot(x, ynew, linewidth=2)
     ax2.set_title('batterij')
 
-    ax3.plot(x, ynew)
+    ax3.plot(x, ynew, linewidth=2)
     ax3.set_title('windmolen')
     
-    ax4.plot(x, ynew)
+    ax4.plot(x, ynew, linewidth=2)
     ax4.set_title('e3')
 
-
-    plt.cla()
-def test():
-    global fig,ax1,ax2,ax3,ax4
+def Graph():
+    global ax1,ax2,ax3,ax4
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(nrows=2, ncols=2)
-    fig.patch.set_facecolor('#2E3347')
+    fig.patch.set_facecolor('#4d577d')
+    ax1.set_facecolor('#AAAABB')
+    ax2.set_facecolor('#AAAABB')
+    ax3.set_facecolor('#AAAABB')
+    ax4.set_facecolor('#AAAABB')
     ani = animation.FuncAnimation(fig,graph,interval=1000)
     plt.get_current_fig_manager().window.state('zoomed')
     plt.show()
@@ -72,5 +73,5 @@ canvas.pack(fill="both", expand=True)
 fig = Figure(figsize=(5, 5))
 
 xpng = ImageTk.PhotoImage(Image.open('rsc/data.png'))
-graphButton = Button(canvas,image=xpng, anchor='center', command=test, borderwidth=0, bd=0, highlightthickness=0)
+graphButton = Button(canvas,image=xpng, anchor='center', command=Graph, borderwidth=0, bd=0, highlightthickness=0)
 graphButton.place(x=SCREENWIDTH - 191.5, y=0)

@@ -8,7 +8,7 @@ with open('dataFiles/data.csv', 'w') as w:
     writer = csv.DictWriter(w, fieldnames=fieldnames)
     writer.writeheader()
 
-for i in range(25):
+for i in range(24):
     with open('dataFiles/data.csv', 'a') as i:
         writer = csv.DictWriter(i, fieldnames=fieldnames)
 
